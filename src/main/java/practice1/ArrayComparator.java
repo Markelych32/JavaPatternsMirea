@@ -1,4 +1,4 @@
-package practice1.main;
+package practice1;
 
 import java.util.Comparator;
 

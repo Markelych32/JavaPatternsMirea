@@ -1,4 +1,4 @@
-package practice2.main;
+package practice2;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -2,7 +2,6 @@ package practice1;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import practice1.main.ArrayComparator;
 
 public class ArrayComparatorTest {
 

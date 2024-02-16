@@ -1,4 +1,4 @@
-package practice2.main;
+package practice2;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
