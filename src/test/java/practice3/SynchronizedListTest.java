@@ -1,4 +1,4 @@
-package practice2;
+package practice3;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

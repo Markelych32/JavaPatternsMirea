@@ -1,4 +1,4 @@
-package practice2;
+package practice3;
 
 import org.junit.jupiter.api.Test;
 import practice3.SynchronizedMap;
@@ -45,8 +45,11 @@ public class SynchronizedMapTest {
 
         for (int i = 0; i < 100; i++) {
             int finalI = i;
-            new Thread(() -> map.put(finalI, "value" + finalI)).start();
-            new Thread(() -> map.remove(finalI)).start();
+            Thread thread1 = new Thread(() -> map.put(finalI, "value" + finalI));
+            thread1.start();
+            thread1.join();
+            Thread thread2 = new Thread(() -> map.remove(finalI));
+            thread2.start();
         }
 
         Thread.sleep(1000); // Ждем секунду для завершения операций
