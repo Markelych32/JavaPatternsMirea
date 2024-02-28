@@ -1,13 +1,9 @@
 package practice4;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.*;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.concurrent.*;
 
 public class CustomExecutorService implements ExecutorService {
     ExecutorService executorService;

@@ -12,5 +12,6 @@ public class Main {
 
         ThreadSafeSingleton test5 = ThreadSafeSingleton.getInstance();
         ThreadSafeSingleton test6 = ThreadSafeSingleton.getInstance();
+        System.out.println(test5 == test6);
     }
 }
