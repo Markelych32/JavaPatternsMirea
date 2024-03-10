@@ -1,6 +1,4 @@
-package practice6.factory_mathod.chicago;
-
-import practice6.factory_mathod.chicago.Pizza;
+package practice6.factory_mathod;
 
 public abstract class PizzaStore {
 

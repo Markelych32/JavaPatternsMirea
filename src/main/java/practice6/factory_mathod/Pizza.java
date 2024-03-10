@@ -1,4 +1,4 @@
-package practice6.factory_mathod.chicago;
+package practice6.factory_mathod;
 
 import lombok.Getter;
 

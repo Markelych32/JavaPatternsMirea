@@ -1,8 +1,8 @@
-package practice6.factory_mathod.chicago;
+package practice6.factory_mathod;
 
 
 import practice6.factory_mathod.chicago.store.ChicagoPizzaStore;
-import practice6.factory_mathod.chicago.ny.store.NYPizzaStore;
+import practice6.factory_mathod.ny.store.NYPizzaStore;
 
 public class PizzaTest {
     public static void main(String[] args) {

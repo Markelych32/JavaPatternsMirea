@@ -1,6 +1,6 @@
-package practice6.factory_mathod.chicago.ny.pizza;
+package practice6.factory_mathod.ny.pizza;
 
-import practice6.factory_mathod.chicago.Pizza;
+import practice6.factory_mathod.Pizza;
 
 public class NYStyleVeggiePizza extends Pizza {
     public NYStyleVeggiePizza() {
