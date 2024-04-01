@@ -2,4 +2,4 @@ spring:
   application:
     name: spring
 server:
-  port: 9090
+  port: 0
