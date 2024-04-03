@@ -3,3 +3,6 @@ spring:
     name: spring
 server:
   port: 0
+management:
+  endpoints:
+    enabled-by-default: true
