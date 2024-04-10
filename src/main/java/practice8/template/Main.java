@@ -1,13 +1,12 @@
 package practice8.template;
 
-public class Main {
-    public static void main(String[] args) {
-        WebsiteTemplate welcomePage = new WelcomePage();
-        WebsiteTemplate newsPage = new NewsPage();
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 
-        welcomePage.showPage();
-        System.out.println("\n===================================\n");
-        newsPage.showPage();
+public class Main {
+    public static void main(String[] args) throws IOException {
     }
 }
 
