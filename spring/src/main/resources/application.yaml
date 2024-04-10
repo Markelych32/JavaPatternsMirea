@@ -1,6 +1,10 @@
 spring:
   application:
     name: spring
+student:
+  name: Mark
+  last_name: Solonchev
+  group: IKBO-20-22
 server:
   port: 0
 management:
