@@ -15,12 +15,12 @@ public class MyFileWriter {
     private static final String FILE_FROM = "C:\\Users\\Mark\\IdeaProjects\\JavaPatternsMirea\\spring\\src\\main\\java\\ru\\solonchev\\spring\\practice12\\texts\\file1.txt";
     private static final String FILE_TO = "C:\\Users\\Mark\\IdeaProjects\\JavaPatternsMirea\\spring\\src\\main\\java\\ru\\solonchev\\spring\\practice12\\texts\\file2.txt";
 
-    //@PostConstruct
+    @PostConstruct
     public void init() {
         log.info("File Writer Started");
     }
 
-    //@PreDestroy
+    @PreDestroy
     public void preDestroy() throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FILE_TO));
         if (new File(FILE_FROM).exists()) {

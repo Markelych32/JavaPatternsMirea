@@ -6,7 +6,7 @@ student:
   last_name: Solonchev
   group: IKBO-20-22
 server:
-  port: 0
+  port: 5555
 management:
   endpoints:
     enabled-by-default: true
