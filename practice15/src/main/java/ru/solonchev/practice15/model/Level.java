@@ -1,5 +1,7 @@
 package ru.solonchev.practice15.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Getter
+@Data
 public class Level {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,4 +18,8 @@ public class Level {
     @Column(name = "level_name", nullable = false, unique = true)
     private String levelName;
     private String complexity;
+    @ManyToOne
+    @JoinColumn(name = "game_id", referencedColumnName = "id")
+    @JsonIgnore
+    private Game game;
 }

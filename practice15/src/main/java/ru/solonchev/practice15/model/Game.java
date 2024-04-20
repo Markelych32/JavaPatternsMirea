@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,4 +22,6 @@ public class Game {
     private String gameName;
     @Column(name = "creation_date")
     private String creationDate;
+    @OneToMany(mappedBy = "game")
+    private List<Level> levels = new ArrayList<>();
 }

@@ -30,6 +30,15 @@ public class MainController {
         return ResponseEntity.ok(games);
     }
 
+    @PostMapping("/game/{game_id}/level/{level_id}")
+    public ResponseEntity<Void> addLevelToGame(
+            @PathVariable("game_id") Long gameId,
+            @PathVariable("level_id") Long levelId
+    ) {
+        gameService.addLevelToGame(gameId, levelId);
+        return ResponseEntity.ok().build();
+    }
+
     @DeleteMapping("/game/{game_id}")
     public ResponseEntity<Game> deleteGame(@PathVariable("game_id") Long gameId) {
         return ResponseEntity.ok().body(gameService.deleteGameById(gameId));
