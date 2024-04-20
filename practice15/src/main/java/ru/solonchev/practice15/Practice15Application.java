@@ -1,11 +1,13 @@
-package ru.solonchev.spring;
+package ru.solonchev.practice15;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication()
-public class Application {
+@SpringBootApplication
+public class Practice15Application {
+
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(Practice15Application.class, args);
     }
+
 }
