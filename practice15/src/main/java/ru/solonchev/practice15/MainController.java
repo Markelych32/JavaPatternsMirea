@@ -30,6 +30,16 @@ public class MainController {
         return ResponseEntity.ok(games);
     }
 
+    @GetMapping("/games/order/name")
+    public ResponseEntity<List<Game>> getOrderedGamesByName() {
+        return ResponseEntity.ok().body(gameService.getSortedGamesByName());
+    }
+
+    @GetMapping("/games/order/creation")
+    public ResponseEntity<List<Game>> getOrderedGamesByCreation() {
+        return ResponseEntity.ok().body(gameService.getSortedGamesByCreationDate());
+    }
+
     @PostMapping("/game/{game_id}/level/{level_id}")
     public ResponseEntity<Void> addLevelToGame(
             @PathVariable("game_id") Long gameId,
@@ -52,10 +62,26 @@ public class MainController {
     @GetMapping("/levels")
     public ResponseEntity<List<Level>> getLevels() {
         List<Level> levels = levelService.getAllLevels();
-        for (Level level : levels) {
-            System.out.println(level.getLevelName() + " " + level.getComplexity());
-        }
         return ResponseEntity.ok(levels);
+    }
+
+    @GetMapping("/levels/order/name")
+    public ResponseEntity<List<Level>> getLevelsOrderedByName() {
+        return ResponseEntity
+                .ok()
+                .body(levelService.getAllLevelsOrderedByLevelName());
+    }
+
+    @GetMapping("/levels/order/complexity")
+    public ResponseEntity<List<Level>> getLevelsOrderedByComplexity() {
+        return ResponseEntity
+                .ok()
+                .body(levelService.getAllLevelsOrderedByComplexity());
+    }
+
+    @GetMapping("/games/order")
+    public ResponseEntity<List<Game>> getGamesOrder() {
+        return ResponseEntity.ok(gameService.getGamesByName());
     }
 
     @DeleteMapping("/level/{level_id}")

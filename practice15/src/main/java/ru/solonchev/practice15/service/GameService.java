@@ -1,6 +1,7 @@
 package ru.solonchev.practice15.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.solonchev.practice15.dto.GameDto;
@@ -48,5 +49,17 @@ public class GameService {
         Level level = levelRepository.findById(levelId).orElseThrow(RuntimeException::new);
         level.setGame(game);
         levelRepository.save(level);
+    }
+
+    public List<Game> getGamesByName() {
+        return gameRepository.findAllByOrderByGameNameAsc();
+    }
+
+    public List<Game> getSortedGamesByName() {
+        return gameRepository.findAll(Sort.by(Sort.Direction.ASC, "gameName"));
+    }
+
+    public List<Game> getSortedGamesByCreationDate() {
+        return gameRepository.findAll(Sort.by(Sort.Direction.ASC, "creationDate"));
     }
 }
