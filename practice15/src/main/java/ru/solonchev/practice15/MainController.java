@@ -79,11 +79,6 @@ public class MainController {
                 .body(levelService.getAllLevelsOrderedByComplexity());
     }
 
-    @GetMapping("/games/order")
-    public ResponseEntity<List<Game>> getGamesOrder() {
-        return ResponseEntity.ok(gameService.getGamesByName());
-    }
-
     @DeleteMapping("/level/{level_id}")
     public ResponseEntity<Level> deleteLevel(@PathVariable("level_id") Long levelId) {
         return ResponseEntity.ok().body(levelService.deleteLevelById(levelId));

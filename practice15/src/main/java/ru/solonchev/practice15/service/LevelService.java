@@ -1,6 +1,7 @@
 package ru.solonchev.practice15.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ru.solonchev.practice15.dto.LevelDto;
@@ -11,10 +12,12 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class LevelService {
     private final LevelRepository levelRepository;
 
     public Level create(LevelDto level) {
+        log.info("Creating level {}", level.getLevelName());
         return levelRepository.save(
                 Level.builder()
                         .complexity(level.getComplexity())
@@ -24,20 +27,24 @@ public class LevelService {
     }
 
     public List<Level> getAllLevels() {
+        log.info("Getting all levels");
         return levelRepository.findAll();
     }
 
     public List<Level> getAllLevelsOrderedByLevelName() {
+        log.info("Getting all levels ordered by name");
         return levelRepository.findAll(Sort.by(Sort.Direction.ASC, "levelName"));
     }
 
     public List<Level> getAllLevelsOrderedByComplexity() {
+        log.info("Getting all levels ordered by complexity");
         return levelRepository.findAll(Sort.by(Sort.Direction.ASC, "complexity"));
     }
 
     public Level deleteLevelById(Long id) {
         Level level = levelRepository.findById(id).orElseThrow(RuntimeException::new);
         levelRepository.delete(level);
+        log.info("Deleting level {}", id);
         return level;
     }
 }
