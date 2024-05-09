@@ -21,6 +21,7 @@ public class GameService {
     private final GameRepository gameRepository;
     private final LevelRepository levelRepository;
 
+    @Transactional
     public Game saveGame(GameDto gameDto) {
         log.info("Saving game {}", gameDto.getGameName());
         return gameRepository.save(
@@ -32,6 +33,7 @@ public class GameService {
         );
     }
 
+    @Transactional
     public List<Game> getAllGames() {
         log.info("Getting All games");
         return gameRepository.findAll();
@@ -43,6 +45,7 @@ public class GameService {
         return gameRepository.deleteGameByGameName(gameName);
     }
 
+    @Transactional
     public Game deleteGameById(Long id) {
         Game game = gameRepository.findById(id).orElseThrow(RuntimeException::new);
         gameRepository.deleteById(id);
@@ -50,6 +53,7 @@ public class GameService {
         return game;
     }
 
+    @Transactional
     public void addLevelToGame(Long gameId, Long levelId) {
         Game game = gameRepository.findById(gameId).orElseThrow(RuntimeException::new);
         Level level = levelRepository.findById(levelId).orElseThrow(RuntimeException::new);

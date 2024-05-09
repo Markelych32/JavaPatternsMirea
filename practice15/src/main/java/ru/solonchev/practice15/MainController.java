@@ -1,12 +1,14 @@
 package ru.solonchev.practice15;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.solonchev.practice15.dto.GameDto;
 import ru.solonchev.practice15.dto.LevelDto;
 import ru.solonchev.practice15.model.Game;
 import ru.solonchev.practice15.model.Level;
+import ru.solonchev.practice15.service.EmailService;
 import ru.solonchev.practice15.service.GameService;
 import ru.solonchev.practice15.service.LevelService;
 
@@ -18,6 +20,15 @@ import java.util.List;
 public class MainController {
     private final GameService gameService;
     private final LevelService levelService;
+    private final EmailService emailService;
+
+    @Value("${spring.mail.username}")
+    private String email;
+
+    @PostMapping("/email")
+    public void sendEmailMessage() {
+        emailService.sendEmail(email, "Тестовое Текстовое сообщение");
+    }
 
     @PostMapping("/game")
     public ResponseEntity<Game> addGame(@RequestBody GameDto game) {
