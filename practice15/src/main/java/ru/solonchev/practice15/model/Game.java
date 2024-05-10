@@ -1,10 +1,8 @@
 package ru.solonchev.practice15.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +20,6 @@ public class Game {
     private String gameName;
     @Column(name = "creation_date")
     private String creationDate;
-    @OneToMany(mappedBy = "game")
+    @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     private List<Level> levels = new ArrayList<>();
 }
